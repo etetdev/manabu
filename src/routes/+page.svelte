@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	const hiragana = [
 		'あ',
 		'い',
@@ -181,35 +183,50 @@
 			const index = hiragana.indexOf(currentHiragana);
 			currentHiragana = shuffle(hiragana)[(index + 1) % hiragana.length];
 			userAnswer = '';
-			alert('Correct!');
-			document.getElementById('currentHiragana').innerHTML = currentHiragana;
+			document.getElementById('message').textContent = 'Correct!';
+			document.getElementById('message').style.color = 'green';
+			document.getElementById('currentHiragana').textContent = currentHiragana;
 		} else {
-			alert('Faux!');
+			document.getElementById('message').textContent = 'Incorrect, réessayez !';
+			document.getElementById('message').style.color = 'red';
 		}
 	}
 </script>
 
-<h1 class="text-6xl font-bold flex flex-col justify-center items-center mt-8">{currentHiragana}</h1>
+<div class="flex flex-col justify-center items-center mt-8">
+	<h1 class="text-6xl font-bold text-white">{currentHiragana}</h1>
 
-<form
-	class="text-3xl flex flex-col justify-center items-center mt-8"
-	on:submit|preventDefault={checkAnswer}
->
-	<label class="font-bold" for="answer">Réponse :</label>
-	<input
-		class="mt-4 rounded-2xl focus:outline-none border-4 border-black"
-		type="text"
-		id="answer"
-		bind:value={userAnswer}
-	/>
-	<button
-		type="submit"
-		class="mt-4 bg-blue-500 p-4 text-sm rounded-2xl border-4 border-black hover:bg-blue-700 active:bg-blue-900"
-		>Envoyer</button
-	>
-</form>
+	<div class="mt-8">
+		<form
+			class="text-3xl flex flex-col justify-center items-center text-white"
+			on:submit|preventDefault={checkAnswer}
+		>
+			<label for="answer" class="font-semibold">Réponse:</label>
+			<input
+				type="text"
+				id="answer"
+				class="mt-4 rounded-lg text-black font-medium"
+				bind:value={userAnswer}
+			/>
+			<button
+				type="submit"
+				class="mt-4 bg-blue-500 p-4 rounded-2xl font-semibold hover:bg-blue-600 active:bg-blue-700"
+				>Envoyer</button
+			>
+		</form>
+
+		<div id="message" class="mt-4 flex justify-center items-center font-bold text-2xl" />
+	</div>
+</div>
 
 <style lang="postcss">
 	:global(html) {
+	}
+	.correct {
+		color: green;
+	}
+
+	.wrong {
+		color: red;
 	}
 </style>
