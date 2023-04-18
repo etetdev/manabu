@@ -1,7 +1,7 @@
 <script>
-  import "../app.css";
+	import '../app.css';
 </script>
 
 <slot />
 
-<body class="bg-slate-500"></body>
+<body class="bg-slate-800" />
