@@ -7,7 +7,7 @@
 	<a data-sveltekit-preload-data="tap" href="/katakana">ア</a>
 </div>
 
-<div class="flex flex-row justify-center text-white mt-2 space-x-24 font-medium">
+<div class="flex flex-row justify-center text-white mt-2 space-x-24 font-med">
 	<p>Hiragana</p>
 	<p>Katakana</p>
 </div>
