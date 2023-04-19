@@ -73,11 +73,6 @@
 		'ぷ',
 		'ぺ',
 		'ぽ',
-		'ぁ',
-		'ぃ',
-		'ぅ',
-		'ぇ',
-		'ぉ',
 		'ゃ',
 		'ゅ',
 		'ょ',
@@ -91,10 +86,9 @@
 		}
 		return array;
 	}
-
 	let currentHiragana = shuffle(hiragana)[0];
 	let userAnswer = '';
-
+	console.log(currentHiragana);
 	function checkAnswer() {
 		const romajiMap = {
 			あ: 'a',
@@ -168,11 +162,6 @@
 			ぷ: 'pu',
 			ぺ: 'pe',
 			ぽ: 'po',
-			ぁ: 'a',
-			ぃ: 'i',
-			ぅ: 'u',
-			ぇ: 'e',
-			ぉ: 'o',
 			ゃ: 'ya',
 			ゅ: 'yu',
 			ょ: 'yo',
@@ -193,7 +182,7 @@
 	}
 </script>
 
-<div class="text-white text-2xl flex items-center justify-center font-semibold space-x-24">
+<div class="text-white text-2xl text-center font-semibold space-x-24">
 	<a data-sveltekit-preload-data="tap" href="/"> Acceuil </a>
 
 	<a data-sveltekit-preload-data="tap" href="/katakana"> Katakana </a>

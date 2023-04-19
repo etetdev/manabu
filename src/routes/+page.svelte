@@ -1,4 +1,4 @@
-<h1 class="text-white text-2xl mt-8 font-semibold flex justify-center">
+<h1 class="text-white text-2xl mt-8 font-semibold text-center">
 	Bienvenue sur manabu ! Revisez vos Hiragana et Katakana ici !
 </h1>
 

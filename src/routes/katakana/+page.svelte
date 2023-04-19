@@ -73,11 +73,6 @@
 		'プ',
 		'ペ',
 		'ポ',
-		'ァ',
-		'ィ',
-		'ゥ',
-		'ェ',
-		'ォ',
 		'ャ',
 		'ュ',
 		'ョ',
@@ -188,7 +183,7 @@
 	}
 </script>
 
-<div class="text-white text-2xl flex items-center justify-center font-semibold space-x-24">
+<div class="text-white text-2xl text-center font-semibold space-x-24">
 	<a data-sveltekit-preload-data="tap" href="/"> Acceuil </a>
 
 	<a data-sveltekit-preload-data="tap" href="/hiragana"> Hiragana </a>
