@@ -217,11 +217,4 @@
 <style lang="postcss">
 	:global(html) {
 	}
-	.correct {
-		color: green;
-	}
-
-	.wrong {
-		color: red;
-	}
 </style>
