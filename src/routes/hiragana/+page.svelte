@@ -182,14 +182,14 @@
 	}
 </script>
 
-<div class="text-white text-2xl text-center font-semibold space-x-24">
-	<a data-sveltekit-preload-data="tap" href="/"> Acceuil </a>
+<div class="mt-8 text-white text-3xl text-center font-semibold space-x-24">
+	<a data-sveltekit-preload-data="tap" href="/" class="hover:text-blue-300"> Acceuil </a>
 
-	<a data-sveltekit-preload-data="tap" href="/katakana"> Katakana </a>
+	<a data-sveltekit-preload-data="tap" href="/katakana" class="hover:text-blue-300"> Katakana </a>
 </div>
 
 <div class="flex flex-col justify-center items-center mt-8">
-	<h1 class="text-6xl font-bold text-white">{currentHiragana}</h1>
+	<h1 class="text-8xl font-bold text-white">{currentHiragana}</h1>
 
 	<div class="mt-8">
 		<form

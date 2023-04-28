@@ -4,4 +4,4 @@
 
 <slot />
 
-<body class="bg-slate-800" />
+<body class="bg-slate-900" />

@@ -1,6 +1,4 @@
-<script>
-	// @ts-nocheck
-
+<script lang="ts">
 	const katakana = [
 		'ア',
 		'イ',
@@ -79,19 +77,21 @@
 		'ッ'
 	];
 
-	function shuffle(array) {
-		for (let i = array.length - 1; i > 0; i--) {
+	function shuffle(array: string[]): string[] {
+		const shuffled: string[] = [...array];
+		for (let i = shuffled.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
+			[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
 		}
-		return array;
+		return shuffled;
 	}
 
-	let currentKatakana = shuffle(katakana)[0];
+	let currentKatakana: string = shuffle(katakana)[0];
 	let userAnswer = '';
 
 	function checkAnswer() {
-		const romajiMap = {
+		type RomajiMap = { [katakana: string]: string };
+		const romajiMap: RomajiMap = {
 			ア: 'a',
 			イ: 'i',
 			ウ: 'u',
@@ -168,29 +168,38 @@
 			ョ: 'yo',
 			ッ: 'tsu'
 		};
-		const currentRomaji = romajiMap[currentKatakana];
+		const currentRomaji: string = romajiMap[currentKatakana];
 		if (userAnswer === currentRomaji) {
-			const index = katakana.indexOf(currentKatakana);
+			const index: number = katakana.indexOf(currentKatakana);
 			currentKatakana = shuffle(katakana)[(index + 1) % katakana.length];
 			userAnswer = '';
-			document.getElementById('message').textContent = 'Correct!';
-			document.getElementById('message').style.color = 'green';
-			document.getElementById('currentKatakana').textContent = currentKatakana;
+			const messageElement: HTMLElement | null = document.getElementById('message');
+			if (messageElement) {
+				messageElement.textContent = 'Correct!';
+				messageElement.style.color = 'green';
+			}
+			const currentKatakanaElement: HTMLElement | null = document.getElementById('currentKatakana');
+			if (currentKatakanaElement) {
+				currentKatakanaElement.textContent = currentKatakana;
+			}
 		} else {
-			document.getElementById('message').textContent = 'Incorrect, réessayez!';
-			document.getElementById('message').style.color = 'red';
+			const messageElement: HTMLElement | null = document.getElementById('message');
+			if (messageElement) {
+				messageElement.textContent = 'Incorrect, réessayez!';
+				messageElement.style.color = 'red';
+			}
 		}
 	}
 </script>
 
-<div class="text-white text-2xl text-center font-semibold space-x-24">
-	<a data-sveltekit-preload-data="tap" href="/"> Acceuil </a>
+<div class="mt-8 text-white text-3xl text-center font-semibold space-x-24">
+	<a data-sveltekit-preload-data="tap" href="/" class="hover:text-blue-300"> Acceuil </a>
 
-	<a data-sveltekit-preload-data="tap" href="/hiragana"> Hiragana </a>
+	<a data-sveltekit-preload-data="tap" href="/hiragana" class="hover:text-blue-300"> Hiragana </a>
 </div>
 
 <div class="flex flex-col justify-center items-center mt-8">
-	<h1 class="text-6xl font-bold text-white">{currentKatakana}</h1>
+	<h1 class="text-8xl font-bold text-white">{currentKatakana}</h1>
 
 	<div class="mt-8">
 		<form
